@@ -37,6 +37,41 @@ public class node {
 		}
 	}
 
+	public void insertAtBeginning(int value) {
+		Node newNode = new Node(value);
+		if (head == null) {
+			head = newNode;
+			tail = newNode;
+		} else {
+			newNode.next = head;
+			head = newNode;
+		}
+	}
+
+	public void insertAtTail(int value) {
+		Node newNode = new Node(value);
+		if (head == null) {
+			head = newNode;
+			tail = newNode;
+		}
+		newNode.next = null;
+		tail = head;
+		while (tail.next != null) {
+			tail = tail.next;
+		}
+		tail.next = newNode;
+	}
+
+	public void insertAfterANode(Node preNode, int value) {
+		Node newNode = new Node(value);
+		if (preNode == null) {
+			System.out.println("Previous Node is invalid!");
+		}
+		newNode.next = preNode.next;
+		preNode.next = newNode;
+
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		node lList = new node();
@@ -46,6 +81,7 @@ public class node {
 		for (int i = 0; i < n; i++) {
 			lList.addNode(sc.nextInt());
 		}
+		lList.insertAfterANode(lList.head.next, 4);
 		lList.display();
 	}
 }
