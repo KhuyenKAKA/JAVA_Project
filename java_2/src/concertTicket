@@ -47,3 +47,4 @@ public class concertTicket {
         result(sc);
     }
 }
+//https://cses.fi/problemset/task/1091
